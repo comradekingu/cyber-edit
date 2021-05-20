@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Text Editor
+GenericName=Text Editor
+Comment=Cyber-Edit
+Exec=cyber-edit %U
+MimeType=text/plain;
+Icon=text-editor
+Categories=TextEditor;Utility;Core;Qt;
+StartupNotify=true
