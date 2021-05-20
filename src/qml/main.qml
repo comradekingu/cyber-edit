@@ -11,7 +11,7 @@ Meui.Window {
 
     visible: true
     id: rootWindow
-    title: "Cyber-Edit"
+    title: qsTr("Text Editor")
     width: 800
     height: 600
     minimumWidth: 800
@@ -48,31 +48,29 @@ Meui.Window {
                 Button {
                     id: newFile
                     Layout.fillWidth: true
-                    text: "New File"
+                    text: qsTr("New File")
                     onClicked: newFileConfirmation.visible = true
                 }
 
                 Button {
-                    text: "Open File"
+                    text: qsTr("Open File")
                     onClicked: openDialog.open()
                 }
 
                 Button {
-                    text: "Save"
+                    text: qsTr("Save")
                     onClicked: fileNameBox.visible = true
                 }
 
                 Button {
-                    text: "Run..."
+                    text: qsTr("Run...")
                     onClicked: runCommand.visible = true
                 }
 
                 Button {
-                    text: "About"
-                    onClicked: showMessage("Cyber-Edit\nText Editor for the Cyber desktop environment.\n\nMade by aren\nMade with Qt Quick and C++", "About Cyber-Edit")
+                    text: qsTr("About")
+                    onClicked: showMessage(qsTr("Cyber Text Editor\nText Editor for the Cyber desktop environment.\n\nMade by aren with Qt Quick and C++."), qsTr("About Text Editor"))
                 }
-
-
             }
         }
 
@@ -146,7 +144,7 @@ Meui.Window {
             x: 50
             id: messageBoxButton
             anchors.bottom: parent.bottom
-            text: "Ok"
+            text: qsTr("Ok")
             onClicked: messageBox.visible = false
         }
 
@@ -155,7 +153,7 @@ Meui.Window {
             anchors.margins: 10
             id: sourceCodeButton
             anchors.bottom: parent.bottom
-            text: "Source Code"
+            text: qsTr("GitHub Repository")
             onClicked: aboutbox.openGithubRepo()
         }
     }
@@ -163,7 +161,7 @@ Meui.Window {
     Window {
         id: fileNameBox
         modality: Qt.ApplicationModal
-        title: "Enter file name"
+        title: qsTr("Enter file name")
         visible: false
         property alias text: messageBoxLabel.text
         color: Meui.Theme.darkMode ? "#252525" : "white"
@@ -180,7 +178,7 @@ Meui.Window {
         Button {
             width: 50
             id: okButton
-            text: "Ok"
+            text: qsTr("Ok")
             anchors.bottom: parent.bottom
             x: (parent.width - okButton.width) / 2
             onClicked: {
@@ -194,7 +192,7 @@ Meui.Window {
     Window {
         id: newFileConfirmation
         modality: Qt.ApplicationModal
-        title: "Are you sure?"
+        title: qsTr("Are you sure?")
         visible: false
         property alias text: messageBoxLabel.text
         color: Meui.Theme.darkMode ? "#252525" : "white"
@@ -206,13 +204,13 @@ Meui.Window {
         Label {
             id: newFileConfirmationLabel
             x: (parent.width - newFileConfirmationLabel.width) / 2
-            text: "Are you sure? You will lose unsaved changes."
+            text: qsTr("Are you sure? You will lose unsaved changes.")
         }
 
         Button {
             width: 50
             id: newFileConfirmationButton
-            text: "Ok"
+            text: qsTr("Ok")
             anchors.bottom: parent.bottom
             x: (parent.width - newFileConfirmationButton.width) / 2
             onClicked: {
@@ -225,7 +223,7 @@ Meui.Window {
     Window {
         id: runCommand
         modality: Qt.ApplicationModal
-        title: "Enter command"
+        title: qsTr("Enter command")
         visible: false
         property alias text: messageBoxLabel.text
         color: Meui.Theme.darkMode ? "#252525" : "white"
@@ -242,7 +240,7 @@ Meui.Window {
         Button {
             width: 50
             id: runCommandOkButton
-            text: "Ok"
+            text: qsTr("Ok")
             anchors.bottom: parent.bottom
             x: (parent.width - runCommandOkButton.width) / 2
             onClicked: {
@@ -254,7 +252,7 @@ Meui.Window {
 
     FileDialog {
         id: openDialog
-        title: "Please choose a file"
+        title: qsTr("Please choose a file")
         folder: shortcuts.home
         selectFolder: false
         selectMultiple: false
@@ -270,7 +268,7 @@ Meui.Window {
 
     FileDialog {
         id: saveDialog
-        title: "Please choose where to save the file"
+        title: qsTr("Please choose where to save the file")
         folder: shortcuts.home
         selectFolder: true
         selectMultiple: false

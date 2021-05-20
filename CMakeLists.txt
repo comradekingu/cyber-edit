@@ -1,72 +1,47 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.20)
 
-project(cyber-edit VERSION 0.1 LANGUAGES CXX)
+project(cyber-edit)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# QtCreator supports the following variables for Android, which are identical to qmake Android variables.
-# Check https://doc.qt.io/qt/deployment-android.html for more information.
-# They need to be set before the find_package(...) calls below.
+set(QT Core Quick LinguistTools)
+find_package(Qt5 REQUIRED ${QT})
 
-#if(ANDROID)
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-#    if (ANDROID_ABI STREQUAL "armeabi-v7a")
-#        set(ANDROID_EXTRA_LIBS
-#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libcrypto.so
-#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libssl.so)
-#    endif()
-#endif()
+set(SRCS
+    src/main.cpp
+    src/aboutbox.cpp
+    src/aboutbox.h
+    src/fileoperations.h
+    src/fileoperations.cpp
+    src/executecommand.h
+    src/executecommand.cpp)
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick REQUIRED)
-
-set(PROJECT_SOURCES
-        src/main.cpp
-        src/qml.qrc
-        src/aboutbox.cpp
-        src/aboutbox.h
-        src/fileoperations.h
-        src/fileoperations.cpp
-        src/executecommand.h
-        src/executecommand.cpp
+set(RESOURCES
+    src/qml.qrc
 )
 
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(cyber-edit
-        MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
-    )
-else()
-    if(ANDROID)
-        add_library(cyber-edit SHARED
-            ${PROJECT_SOURCES}
-        )
-    else()
-        add_executable(cyber-edit
-          ${PROJECT_SOURCES}
-        )
-    endif()
-endif()
-
-target_compile_definitions(cyber-edit
-  PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
+add_executable(cyber-edit ${SRCS} ${RESOURCES})
 target_link_libraries(cyber-edit
-  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick)
-
-set_target_properties(cyber-edit PROPERTIES
-    MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+    Qt5::Core
+    Qt5::Quick
 )
 
-if(QT_VERSION_MAJOR EQUAL 6)
-    qt_import_qml_plugins(cyber-edit)
-    qt_finalize_executable(cyber-edit)
-endif()
+file(GLOB TS_FILES translations/*.ts)
+qt5_create_translation(QM_FILES ${TS_FILES})
+add_custom_target(translations DEPENDS ${QM_FILES} SOURCES ${TS_FILES})
+add_dependencies(${PROJECT_NAME} translations)
+
+install(TARGETS cyber-edit RUNTIME DESTINATION /usr/bin)
+
+install(FILES
+    cyber-edit.desktop
+    DESTINATION /usr/share/applications/
+    COMPONENT Runtime
+)
+
+install(FILES ${QM_FILES} DESTINATION /usr/share/${PROJECT_NAME}/translations)

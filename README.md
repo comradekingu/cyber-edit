@@ -2,16 +2,17 @@
 Text editor for the Cyber desktop environment.
 
 # Dependencies
-<code>https://github.com/cyberos/meuikit</code>
+https://github.com/cyberos/meuikit
 
 # Building
-<code>mkdir build</code> <br>
-<code>cd build</code> <br>
-<code>cmake ..</code> <br>
-<code>make</code> <br>
+```
+mkdir build
+cd build
+cmake ..
+make -j$(nproc)
+```
 
 # Installing
-If you are in the build folder, go back: <br>
-<code>cd ..</code> <br>
-Then, run install.sh: <br>
-<code>./install.sh</code>
+```
+make install
+```
