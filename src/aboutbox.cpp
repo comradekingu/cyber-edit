@@ -3,5 +3,5 @@
 
 void AboutBox::openGithubRepo()
 {
-    system("xdg-open https://github.com/arencos");
+    system("xdg-open https://github.com/cyberos/cyber-edit");
 }
