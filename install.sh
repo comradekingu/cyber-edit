@@ -5,5 +5,5 @@ then
 fi
 sudo rm /usr/share/applications/cyber-edit.desktop
 sudo rm /usr/bin/cyber-edit
-sudo cp build/cyber-edit /usr/share
+sudo cp build/cyber-edit /usr/bin
 sudo cp cyber-edit.desktop /usr/share/applications
