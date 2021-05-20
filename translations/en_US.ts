@@ -6,32 +6,32 @@
     <message>
         <location filename="../src/qml/main.qml" line="14"/>
         <source>Text Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Text Editor</translation>
     </message>
     <message>
         <location filename="../src/qml/main.qml" line="51"/>
         <source>New File</source>
-        <translation type="unfinished"></translation>
+        <translation>New File</translation>
     </message>
     <message>
         <location filename="../src/qml/main.qml" line="56"/>
         <source>Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>Open File</translation>
     </message>
     <message>
         <location filename="../src/qml/main.qml" line="61"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Save</translation>
     </message>
     <message>
         <location filename="../src/qml/main.qml" line="66"/>
         <source>Run...</source>
-        <translation type="unfinished"></translation>
+        <translation>Run...</translation>
     </message>
     <message>
         <location filename="../src/qml/main.qml" line="71"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>About</translation>
     </message>
     <message>
         <location filename="../src/qml/main.qml" line="72"/>
@@ -39,12 +39,15 @@
 Text Editor for the Cyber desktop environment.
 
 Made by aren with Qt Quick and C++.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cyber Text Editor
+Text Editor for the Cyber desktop environment.
+
+Made by aren with Qt Quick and C++.</translation>
     </message>
     <message>
         <location filename="../src/qml/main.qml" line="72"/>
         <source>About Text Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>About Text Editor</translation>
     </message>
     <message>
         <location filename="../src/qml/main.qml" line="147"/>
@@ -52,44 +55,44 @@ Made by aren with Qt Quick and C++.</source>
         <location filename="../src/qml/main.qml" line="213"/>
         <location filename="../src/qml/main.qml" line="243"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <location filename="../src/qml/main.qml" line="156"/>
         <source>GitHub Repository</source>
-        <translation type="unfinished"></translation>
+        <translation>GitHub Repository</translation>
     </message>
     <message>
         <location filename="../src/qml/main.qml" line="164"/>
         <location filename="../src/qml/main.qml" line="176"/>
         <source>Enter file name</source>
-        <translation type="unfinished"></translation>
+        <translation>Enter file name</translation>
     </message>
     <message>
         <location filename="../src/qml/main.qml" line="195"/>
         <source>Are you sure?</source>
-        <translation type="unfinished"></translation>
+        <translation>Are you sure?</translation>
     </message>
     <message>
         <location filename="../src/qml/main.qml" line="207"/>
         <source>Are you sure? You will lose unsaved changes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Are you sure? You will lose unsaved changes.</translation>
     </message>
     <message>
         <location filename="../src/qml/main.qml" line="226"/>
         <location filename="../src/qml/main.qml" line="238"/>
         <source>Enter command</source>
-        <translation type="unfinished"></translation>
+        <translation>Enter command</translation>
     </message>
     <message>
         <location filename="../src/qml/main.qml" line="255"/>
         <source>Please choose a file</source>
-        <translation type="unfinished"></translation>
+        <translation>Please choose a file</translation>
     </message>
     <message>
         <location filename="../src/qml/main.qml" line="271"/>
         <source>Please choose where to save the file</source>
-        <translation type="unfinished"></translation>
+        <translation>Please choose where to save the file</translation>
     </message>
 </context>
 </TS>
