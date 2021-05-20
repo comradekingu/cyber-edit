@@ -18,6 +18,8 @@
 
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QTranslator>
+#include <QFile>
 #include <cstdlib>
 #include "aboutbox.h"
 #include "fileoperations.h"
@@ -42,8 +44,18 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
     engine.load(url);
 
-
-
+	// Translations
+    QLocale locale;
+    QString qmFilePath = QString("%1/%2.qm").arg("/usr/share/cyber-edit/translations/").arg(locale.name());
+    if (QFile::exists(qmFilePath)) {
+        QTranslator *translator = new QTranslator(QGuiApplication::instance());
+        if (translator->load(qmFilePath)) {
+            QGuiApplication::installTranslator(translator);
+        } else {
+            translator->deleteLater();
+        }
+    }
+	
 
     return app.exec();
 }
